@@ -1,0 +1,1 @@
+This repo contains code samples and exercises from Chollet's Deep Learning with Python 2nd Edition.
