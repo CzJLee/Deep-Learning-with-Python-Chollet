@@ -134,8 +134,8 @@ def one_training_step(model, images_batch, labels_batch):
 		average_loss = tf.reduce_mean(per_sample_losses)
 
 	# Calculate the gradient, then call our update_weights function that adjusts the weights using the gradient and learning rate.
-		gradients = tape.gradient(average_loss, model.weights)
-		update_weights(gradients, model.weights)
+	gradients = tape.gradient(average_loss, model.weights)
+	update_weights(gradients, model.weights)
 	return average_loss
 # %%
 # Define a set learning rate.
@@ -144,7 +144,7 @@ learning_rate = 1e-3
 def update_weights(gradients, weights):
 	# The simplest way to implement this update_weights function is to subtract gradient * learning_rate from each weight:
 	# In reality, we would use an optimizer from tf.keras.optimizers
-	for g, w in zip(gradients, weights):
+	for g, w in zip(gradients, model.weights):
 		# assign_sub is the equivalent of -= for TensorFlow variables.
 		# Kinda like applying gradient descent, we are going in the direction opposite of the gradient. 
 		# This function modifies each of the weights and modifies it.
