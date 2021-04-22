@@ -147,7 +147,7 @@ def update_weights(gradients, weights):
 		# assign_sub is the equivalent of -= for TensorFlow variables.
 		# Kinda like applying gradient descent, we are going in the direction opposite of the gradient. 
 		# This function modifies each of the weights and modifies it.
-		w.assign_sub(w * learning_rate)
+		w.assign_sub(g * learning_rate)
 # %%
 def fit(model, images, labels, epochs, batch_size=128):
 	# Now we define the training loop.
