@@ -107,7 +107,6 @@ class BatchGenerator:
 		self.labels = labels
 		self.batch_size = batch_size
 	def next(self):
-		# I believe that this functions the same as __next__
 		images = self.images[self.index : self.index + self.batch_size]
 		labels = self.labels[self.index : self.index + self.batch_size]
 		self.index += self.batch_size
@@ -144,7 +143,7 @@ learning_rate = 1e-3
 def update_weights(gradients, weights):
 	# The simplest way to implement this update_weights function is to subtract gradient * learning_rate from each weight:
 	# In reality, we would use an optimizer from tf.keras.optimizers
-	for g, w in zip(gradients, model.weights):
+	for g, w in zip(gradients, weights):
 		# assign_sub is the equivalent of -= for TensorFlow variables.
 		# Kinda like applying gradient descent, we are going in the direction opposite of the gradient. 
 		# This function modifies each of the weights and modifies it.
