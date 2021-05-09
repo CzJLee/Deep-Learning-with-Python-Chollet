@@ -1,3 +1,6 @@
 .DS_Store
 dogs-vs-cats-data/
 dogs-vs-cats-small/
+
+# File over github file size limit
+fine_tuning.keras
